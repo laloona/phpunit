@@ -10,12 +10,15 @@
 namespace PHPUnit\Framework;
 
 use Countable;
-use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Assert\CardinalityAsserts;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\DataProviderExternal;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 
-#[CoversMethod(Assert::class, 'assertNotSameSize')]
+#[CoversTrait(CardinalityAsserts::class)]
+#[CoversClass(GeneratorNotSupportedException::class)]
 #[TestDox('assertNotSameSize()')]
 #[Small]
 final class assertNotSameSizeTest extends TestCase

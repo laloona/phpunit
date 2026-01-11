@@ -15,7 +15,8 @@ use function array_merge;
 use function fopen;
 use DateTimeImmutable;
 use DateTimeZone;
-use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Assert\EqualityAsserts;
+use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
@@ -28,7 +29,7 @@ use PHPUnit\Util\Xml\Loader as XmlLoader;
 use SplObjectStorage;
 use stdClass;
 
-#[CoversMethod(Assert::class, 'assertEquals')]
+#[CoversTrait(EqualityAsserts::class)]
 #[TestDox('assertEquals()')]
 #[Small]
 final class assertEqualsTest extends TestCase

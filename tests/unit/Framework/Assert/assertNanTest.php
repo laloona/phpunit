@@ -9,12 +9,13 @@
  */
 namespace PHPUnit\Framework;
 
-use const NAN;
-use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Assert\MathAsserts;
+use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
+use const NAN;
 
-#[CoversMethod(Assert::class, 'assertNan')]
+#[CoversTrait(MathAsserts::class)]
 #[TestDox('assertNan()')]
 #[Small]
 final class assertNanTest extends TestCase

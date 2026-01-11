@@ -9,14 +9,15 @@
  */
 namespace PHPUnit\Framework;
 
+use PHPUnit\Framework\Assert\TypeAsserts;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 use stdClass;
 
-#[CoversMethod(Assert::class, 'assertInstanceOf')]
+#[CoversTrait(TypeAsserts::class)]
 #[CoversClass(UnknownClassOrInterfaceException::class)]
 #[TestDox('assertInstanceOf()')]
 #[Small]

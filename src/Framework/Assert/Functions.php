@@ -201,6 +201,22 @@ if (!function_exists('PHPUnit\Framework\assertIsList')) {
     }
 }
 
+if (!function_exists('PHPUnit\Framework\assertIsNotList')) {
+    /**
+     * @phpstan-assert list<mixed> $array
+     *
+     * @throws ExpectationFailedException
+     *
+     * @no-named-arguments Parameter names are not covered by the backward compatibility promise for PHPUnit
+     *
+     * @see Assert::assertIsNotList
+     */
+    function assertIsNotList(mixed $array, string $message = ''): void
+    {
+        Assert::assertIsNotList(...func_get_args());
+    }
+}
+
 if (!function_exists('PHPUnit\Framework\assertContains')) {
     /**
      * Asserts that a haystack contains a needle.

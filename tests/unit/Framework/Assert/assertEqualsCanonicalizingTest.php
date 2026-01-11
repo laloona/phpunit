@@ -9,12 +9,13 @@
  */
 namespace PHPUnit\Framework;
 
-use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Assert\EqualityAsserts;
+use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 
-#[CoversMethod(Assert::class, 'assertEqualsCanonicalizing')]
+#[CoversTrait(EqualityAsserts::class)]
 #[TestDox('assertEqualsCanonicalizing()')]
 #[Small]
 final class assertEqualsCanonicalizingTest extends TestCase

@@ -9,12 +9,13 @@
  */
 namespace PHPUnit\Framework;
 
-use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Assert\TraversableAsserts;
+use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\DataProviderExternal;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 
-#[CoversMethod(Assert::class, 'assertNotContainsEquals')]
+#[CoversTrait(TraversableAsserts::class)]
 #[TestDox('assertNotContainsEquals()')]
 #[Small]
 final class assertNotContainsEqualsTest extends TestCase

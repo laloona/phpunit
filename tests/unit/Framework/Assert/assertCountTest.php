@@ -9,16 +9,17 @@
  */
 namespace PHPUnit\Framework;
 
-use function PHPUnit\TestFixture\Generator\f;
 use ArrayIterator;
 use Countable;
+use PHPUnit\Framework\Assert\TraversableAsserts;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
+use function PHPUnit\TestFixture\Generator\f;
 
-#[CoversMethod(Assert::class, 'assertCount')]
+#[CoversTrait(TraversableAsserts::class)]
 #[CoversClass(GeneratorNotSupportedException::class)]
 #[TestDox('assertCount()')]
 #[Small]

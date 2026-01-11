@@ -13,13 +13,14 @@ use const INF;
 use function array_merge;
 use function fopen;
 use function log;
-use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Assert\IdentityAsserts;
+use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\TestFixture\SampleClass;
 
-#[CoversMethod(Assert::class, 'assertSame')]
+#[CoversTrait(IdentityAsserts::class)]
 #[TestDox('assertSame()')]
 #[Small]
 final class assertSameTest extends TestCase

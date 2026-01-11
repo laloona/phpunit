@@ -9,10 +9,13 @@
  */
 namespace PHPUnit\Framework;
 
+use PHPUnit\Framework\Assert\CardinalityAsserts;
+use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 
+#[CoversTrait(CardinalityAsserts::class)]
 #[TestDox('assertGreaterThanOrEqual()')]
 #[Small]
 final class assertGreaterThanOrEqualTest extends TestCase

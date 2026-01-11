@@ -9,12 +9,13 @@
  */
 namespace PHPUnit\Framework;
 
-use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Assert\ObjectAsserts;
+use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 use stdClass;
 
-#[CoversMethod(Assert::class, 'assertObjectNotHasProperty')]
+#[CoversTrait(ObjectAsserts::class)]
 #[TestDox('assertObjectNotHasProperty()')]
 #[Small]
 final class assertObjectNotHasPropertyTest extends TestCase

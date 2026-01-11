@@ -9,12 +9,13 @@
  */
 namespace PHPUnit\Framework;
 
-use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Assert\TraversableAsserts;
+use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\DataProviderExternal;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 
-#[CoversMethod(Assert::class, 'assertIsNotArray')]
+#[CoversTrait(TraversableAsserts::class)]
 #[TestDox('assertIsNotArray()')]
 #[Small]
 final class assertIsNotArrayTest extends TestCase

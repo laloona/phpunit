@@ -9,11 +9,12 @@
  */
 namespace PHPUnit\Framework;
 
-use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Assert\TraversableAsserts;
+use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 
-#[CoversMethod(Assert::class, 'assertTrue')]
+#[CoversTrait(TraversableAsserts::class)]
 #[TestDox('assertTrue()')]
 #[Small]
 final class assertTrueTest extends TestCase

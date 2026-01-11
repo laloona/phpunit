@@ -11,13 +11,14 @@ namespace PHPUnit\Framework;
 
 use ArrayAccess;
 use ArrayObject;
-use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Assert\TraversableAsserts;
+use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\TestFixture\SampleArrayAccess;
 
-#[CoversMethod(Assert::class, 'assertArrayHasKey')]
+#[CoversTrait(TraversableAsserts::class)]
 #[TestDox('assertArrayHasKey()')]
 #[Small]
 final class assertArrayHasKeyTest extends TestCase

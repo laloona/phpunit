@@ -9,15 +9,16 @@
  */
 namespace PHPUnit\Framework;
 
-use function PHPUnit\TestFixture\Generator\f;
 use Countable;
+use PHPUnit\Framework\Assert\CardinalityAsserts;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\DataProviderExternal;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
+use function PHPUnit\TestFixture\Generator\f;
 
-#[CoversMethod(Assert::class, 'assertNotCount')]
+#[CoversTrait(CardinalityAsserts::class)]
 #[CoversClass(GeneratorNotSupportedException::class)]
 #[TestDox('assertNotCount()')]
 #[Small]

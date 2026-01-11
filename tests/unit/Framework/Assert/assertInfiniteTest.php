@@ -9,12 +9,13 @@
  */
 namespace PHPUnit\Framework;
 
-use const INF;
-use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Assert\MathAsserts;
+use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
+use const INF;
 
-#[CoversMethod(Assert::class, 'assertInfinite')]
+#[CoversTrait(MathAsserts::class)]
 #[TestDox('assertInfinite()')]
 #[Small]
 final class assertInfiniteTest extends TestCase

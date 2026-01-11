@@ -9,12 +9,13 @@
  */
 namespace PHPUnit\Framework;
 
-use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Assert\CardinalityAsserts;
+use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 
-#[CoversMethod(Assert::class, 'assertLessThanOrEqual')]
+#[CoversTrait(CardinalityAsserts::class)]
 #[TestDox('assertLessThanOrEqual()')]
 #[Small]
 final class assertLessThanOrEqualTest extends TestCase

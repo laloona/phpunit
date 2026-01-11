@@ -9,13 +9,14 @@
  */
 namespace PHPUnit\Framework;
 
-use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Assert\ObjectAsserts;
+use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\TestFixture\ObjectEquals\ValueObject;
 
-#[CoversMethod(Assert::class, 'assertObjectEquals')]
+#[CoversTrait(ObjectAsserts::class)]
 #[TestDox('assertObjectEquals()')]
 #[Small]
 final class assertObjectEqualsTest extends TestCase

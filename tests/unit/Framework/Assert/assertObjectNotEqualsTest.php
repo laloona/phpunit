@@ -9,12 +9,15 @@
  */
 namespace PHPUnit\Framework;
 
+use PHPUnit\Framework\Assert\Object\ObjectEqualsAssertion;
+use PHPUnit\Framework\Assert\ObjectAsserts;
 use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\DataProviderExternal;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 
-#[CoversMethod(Assert::class, 'assertObjectNotEquals')]
+#[CoversTrait(ObjectAsserts::class)]
 #[TestDox('assertObjectNotEquals()')]
 #[Small]
 final class assertObjectNotEqualsTest extends TestCase

@@ -9,12 +9,13 @@
  */
 namespace PHPUnit\Framework;
 
-use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Assert\Equality\EqualsWithDeltaAssertion;
+use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\DataProviderExternal;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 
-#[CoversMethod(Assert::class, 'assertNotEqualsWithDelta')]
+#[CoversTrait(EqualsWithDeltaAssertion::class)]
 #[TestDox('assertNotEqualsWithDelta()')]
 #[Small]
 final class assertNotEqualsWithDeltaTest extends TestCase

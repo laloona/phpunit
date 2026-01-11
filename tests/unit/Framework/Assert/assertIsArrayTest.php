@@ -9,15 +9,16 @@
  */
 namespace PHPUnit\Framework;
 
+use PHPUnit\Framework\Assert\TraversableAsserts;
+use PHPUnit\Framework\Attributes\CoversTrait;
 use function fclose;
 use function fopen;
-use PHPUnit\Framework\Attributes\CoversMethod;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 use stdClass;
 
-#[CoversMethod(Assert::class, 'assertIsArray')]
+#[CoversTrait(TraversableAsserts::class)]
 #[TestDox('assertIsArray()')]
 #[Small]
 final class assertIsArrayTest extends TestCase

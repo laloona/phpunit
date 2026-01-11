@@ -9,14 +9,15 @@
  */
 namespace PHPUnit\Framework;
 
+use PHPUnit\Framework\Assert\CardinalityAsserts;
+use PHPUnit\Framework\Attributes\CoversTrait;
 use function PHPUnit\TestFixture\Generator\f;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\CoversMethod;
 use PHPUnit\Framework\Attributes\DataProviderExternal;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 
-#[CoversMethod(Assert::class, 'assertNotEmpty')]
+#[CoversTrait(CardinalityAsserts::class)]
 #[CoversClass(GeneratorNotSupportedException::class)]
 #[TestDox('assertNotEmpty()')]
 #[Small]
