@@ -12,12 +12,15 @@ namespace PHPUnit\Framework;
 use PHPUnit\Framework\Assert\IdentityAsserts;
 use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\DataProviderExternal;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 
 #[CoversTrait(IdentityAsserts::class)]
 #[TestDox('assertNotSame()')]
 #[Small]
+#[Group('framework')]
+#[Group('framework/assertions')]
 final class assertNotSameTest extends TestCase
 {
     #[DataProviderExternal(assertSameTest::class, 'failureProvider')]

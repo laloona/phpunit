@@ -12,12 +12,15 @@ namespace PHPUnit\Framework;
 use PHPUnit\Framework\Assert\EqualityAsserts;
 use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 
 #[CoversTrait(EqualityAsserts::class)]
 #[TestDox('assertEqualsWithDelta()')]
 #[Small]
+#[Group('framework')]
+#[Group('framework/assertions')]
 final class assertEqualsWithDeltaTest extends TestCase
 {
     /**

@@ -9,17 +9,22 @@
  */
 namespace PHPUnit\Framework\Constraint;
 
-use ArrayObject;
+use function fclose;
+use function fopen;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
+use stdClass;
 
-#[CoversClass(ArrayHasKey::class)]
+#[CoversClass(IsList::class)]
 #[CoversClass(Constraint::class)]
 #[Small]
-final class ArrayHasKeyTest extends TestCase
+#[Group('framework')]
+#[Group('framework/constraints')]
+final class IsListTest extends TestCase
 {
     public static function provider(): array
     {
@@ -27,58 +32,63 @@ final class ArrayHasKeyTest extends TestCase
             [
                 true,
                 '',
+                [0 => 'value', 1 => 'another-value'],
+            ],
+
+            [
+                false,
+                'Failed asserting that an array is a list.',
+                ['key' => 'value'],
+            ],
+
+            [
+                false,
+                'Failed asserting that an integer is a list.',
                 0,
-                [0 => 'value'],
-            ],
-
-            [
-                true,
-                '',
-                'key',
-                ['key' => 'value'],
-            ],
-
-            [
-                true,
-                '',
-                'key',
-                new ArrayObject(['key' => 'value']),
             ],
 
             [
                 false,
-                'Failed asserting that an array has the key 1.',
-                1,
-                [0 => 'value'],
+                'Failed asserting that an instance of class stdClass is a list.',
+                new stdClass,
             ],
 
             [
                 false,
-                'Failed asserting that an array has the key \'another-key\'.',
-                'another-key',
-                ['key' => 'value'],
+                'Failed asserting that a boolean is a list.',
+                false,
             ],
 
             [
                 false,
-                'Failed asserting that an array has the key \'another-key\'.',
-                'another-key',
-                new ArrayObject(['key' => 'value']),
+                'Failed asserting that a float is a list.',
+                0.0,
             ],
 
             [
                 false,
-                'Failed asserting that an array has the key \'key\'.',
-                'key',
+                'Failed asserting that a resource is a list.',
+                fopen(__FILE__, 'r'),
+            ],
+
+            [
+                false,
+                'Failed asserting that a closed resource is a list.',
+                self::closedResource(),
+            ],
+
+            [
+                false,
+                'Failed asserting that null is a list.',
                 null,
             ],
         ];
     }
 
     #[DataProvider('provider')]
-    public function testCanBeEvaluated(bool $result, string $failureDescription, int|string $expected, mixed $actual): void
+    public function testCanBeEvaluated(bool $result, string $failureDescription, mixed $actual): void
     {
-        $constraint = new ArrayHasKey($expected);
+        $constraint = new IsList;
 
         $this->assertSame($result, $constraint->evaluate($actual, returnResult: true));
 
@@ -94,12 +104,20 @@ final class ArrayHasKeyTest extends TestCase
 
     public function testCanBeRepresentedAsString(): void
     {
-        $this->assertSame('has the key 0', new ArrayHasKey(0)->toString());
-        $this->assertSame('has the key \'key\'', new ArrayHasKey('key')->toString());
+        $this->assertSame('is a list', (new IsList)->toString());
     }
 
     public function testIsCountable(): void
     {
-        $this->assertCount(1, (new ArrayHasKey(0)));
+        $this->assertCount(1, (new IsList));
+    }
+
+    private static function closedResource()
+    {
+        $resource = fopen(__FILE__, 'r');
+
+        fclose($resource);
+
+        return $resource;
     }
 }

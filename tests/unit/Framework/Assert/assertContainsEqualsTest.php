@@ -12,6 +12,7 @@ namespace PHPUnit\Framework;
 use PHPUnit\Framework\Assert\TraversableAsserts;
 use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 use stdClass;
@@ -19,6 +20,8 @@ use stdClass;
 #[CoversTrait(TraversableAsserts::class)]
 #[TestDox('assertContainsEquals()')]
 #[Small]
+#[Group('framework')]
+#[Group('framework/assertions')]
 final class assertContainsEqualsTest extends TestCase
 {
     /**

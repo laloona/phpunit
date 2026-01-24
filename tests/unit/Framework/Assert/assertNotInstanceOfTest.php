@@ -12,6 +12,7 @@ namespace PHPUnit\Framework;
 use PHPUnit\Framework\Assert\TypeAsserts;
 use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\DataProviderExternal;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 use stdClass;
@@ -19,6 +20,8 @@ use stdClass;
 #[CoversTrait(TypeAsserts::class)]
 #[TestDox('assertNotInstanceOf()')]
 #[Small]
+#[Group('framework')]
+#[Group('framework/assertions')]
 final class assertNotInstanceOfTest extends TestCase
 {
     #[DataProviderExternal(assertInstanceOfTest::class, 'failureProvider')]

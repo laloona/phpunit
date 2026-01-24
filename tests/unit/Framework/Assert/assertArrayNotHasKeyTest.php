@@ -13,12 +13,15 @@ use ArrayAccess;
 use PHPUnit\Framework\Assert\TraversableAsserts;
 use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\DataProviderExternal;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 
 #[CoversTrait(TraversableAsserts::class)]
 #[TestDox('assertArrayNotHasKey()')]
 #[Small]
+#[Group('framework')]
+#[Group('framework/assertions')]
 final class assertArrayNotHasKeyTest extends TestCase
 {
     #[DataProviderExternal(assertArrayHasKeyTest::class, 'failureProvider')]

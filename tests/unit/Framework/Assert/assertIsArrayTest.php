@@ -14,6 +14,7 @@ use PHPUnit\Framework\Attributes\CoversTrait;
 use function fclose;
 use function fopen;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 use stdClass;
@@ -21,6 +22,8 @@ use stdClass;
 #[CoversTrait(TraversableAsserts::class)]
 #[TestDox('assertIsArray()')]
 #[Small]
+#[Group('framework')]
+#[Group('framework/assertions')]
 final class assertIsArrayTest extends TestCase
 {
     /**

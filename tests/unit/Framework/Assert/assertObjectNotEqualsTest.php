@@ -14,12 +14,15 @@ use PHPUnit\Framework\Assert\ObjectAsserts;
 use PHPUnit\Framework\Attributes\CoversMethod;
 use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\DataProviderExternal;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 
 #[CoversTrait(ObjectAsserts::class)]
 #[TestDox('assertObjectNotEquals()')]
 #[Small]
+#[Group('framework')]
+#[Group('framework/assertions')]
 final class assertObjectNotEqualsTest extends TestCase
 {
     #[DataProviderExternal(assertObjectEqualsTest::class, 'failureProvider')]

@@ -11,12 +11,15 @@ namespace PHPUnit\Framework;
 
 use PHPUnit\Framework\Assert\TraversableAsserts;
 use PHPUnit\Framework\Attributes\CoversTrait;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 
 #[CoversTrait(TraversableAsserts::class)]
 #[TestDox('assertTrue()')]
 #[Small]
+#[Group('framework')]
+#[Group('framework/assertions')]
 final class assertTrueTest extends TestCase
 {
     public function testSucceedsWhenConstraintEvaluatesToTrue(): void

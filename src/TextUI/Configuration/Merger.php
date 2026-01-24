@@ -45,6 +45,12 @@ final readonly class Merger
      */
     public function merge(CliConfiguration $cliConfiguration, XmlConfiguration $xmlConfiguration): Configuration
     {
+        $testFilesFile = null;
+
+        if ($cliConfiguration->hasTestFilesFile()) {
+            $testFilesFile = $cliConfiguration->testFilesFile();
+        }
+
         $configurationFile = null;
 
         if ($xmlConfiguration->wasLoadedFromFile()) {
@@ -593,7 +599,8 @@ final readonly class Merger
             $reverseDefectList = $xmlConfiguration->phpunit()->reverseDefectList();
         }
 
-        $requireCoverageMetadata = $xmlConfiguration->phpunit()->requireCoverageMetadata();
+        $requireCoverageMetadata  = $xmlConfiguration->phpunit()->requireCoverageMetadata();
+        $requireSealedMockObjects = $xmlConfiguration->phpunit()->requireSealedMockObjects();
 
         if ($cliConfiguration->hasExecutionOrder()) {
             $executionOrder = $cliConfiguration->executionOrder();
@@ -912,6 +919,7 @@ final readonly class Merger
 
         return new Configuration(
             $cliConfiguration->arguments(),
+            $testFilesFile,
             $configurationFile,
             $bootstrap,
             $xmlConfiguration->phpunit()->bootstrapForTestSuite(),
@@ -1023,6 +1031,7 @@ final readonly class Merger
             $displayDetailsOnTestsThatTriggerWarnings,
             $reverseDefectList,
             $requireCoverageMetadata,
+            $requireSealedMockObjects,
             $noProgress,
             $noResults,
             $noOutput,

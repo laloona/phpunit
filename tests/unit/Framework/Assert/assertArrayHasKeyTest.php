@@ -14,6 +14,7 @@ use ArrayObject;
 use PHPUnit\Framework\Assert\TraversableAsserts;
 use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\TestFixture\SampleArrayAccess;
@@ -21,6 +22,8 @@ use PHPUnit\TestFixture\SampleArrayAccess;
 #[CoversTrait(TraversableAsserts::class)]
 #[TestDox('assertArrayHasKey()')]
 #[Small]
+#[Group('framework')]
+#[Group('framework/assertions')]
 final class assertArrayHasKeyTest extends TestCase
 {
     /**

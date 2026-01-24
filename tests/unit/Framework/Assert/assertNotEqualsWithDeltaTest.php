@@ -12,12 +12,15 @@ namespace PHPUnit\Framework;
 use PHPUnit\Framework\Assert\Equality\EqualsWithDeltaAssertion;
 use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\DataProviderExternal;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 
 #[CoversTrait(EqualsWithDeltaAssertion::class)]
 #[TestDox('assertNotEqualsWithDelta()')]
 #[Small]
+#[Group('framework')]
+#[Group('framework/assertions')]
 final class assertNotEqualsWithDeltaTest extends TestCase
 {
     #[DataProviderExternal(assertEqualsWithDeltaTest::class, 'failureProvider')]

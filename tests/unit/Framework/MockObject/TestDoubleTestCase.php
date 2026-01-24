@@ -10,9 +10,8 @@
 namespace PHPUnit\Framework\MockObject;
 
 use Exception;
-use PHPUnit\Framework\Attributes\RequiresPhp;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\TestDox;
-use PHPUnit\Framework\Attributes\Ticket;
 use PHPUnit\Framework\MockObject\Runtime\PropertyHook;
 use PHPUnit\Framework\TestCase;
 use PHPUnit\TestFixture\MockObject\ExtendableClassCallingMethodInDestructor;
@@ -118,7 +117,8 @@ abstract class TestDoubleTestCase extends TestCase
         $this->assertSame(4, $double->doSomething(3));
     }
 
-    #[Ticket('https://github.com/sebastianbergmann/phpunit/issues/6174')]
+    #[Group('regression')]
+    #[Group('regression/6174')]
     final public function testIssue6174(): void
     {
         $double = $this->createTestDouble(Issue6174::class);
@@ -282,7 +282,8 @@ abstract class TestDoubleTestCase extends TestCase
             ->willReturn(true);
     }
 
-    #[Ticket('https://github.com/sebastianbergmann/phpunit/issues/5874')]
+    #[Group('regression')]
+    #[Group('regression/5874')]
     public function testDoubledMethodsCanBeCalledFromDestructorOnTestDoubleCreatedByTheReturnValueGenerator(): void
     {
         $double = $this->createTestDouble(ExtendableClassCallingMethodInDestructor::class);
@@ -293,7 +294,6 @@ abstract class TestDoubleTestCase extends TestCase
         );
     }
 
-    #[RequiresPhp('^8.4')]
     public function testGetHookForPropertyOfInterfaceCanBeConfigured(): void
     {
         $double = $this->createTestDouble(InterfaceWithPropertyWithGetHook::class);
@@ -303,7 +303,6 @@ abstract class TestDoubleTestCase extends TestCase
         $this->assertSame('value', $double->property);
     }
 
-    #[RequiresPhp('^8.4')]
     public function testGetHookForPropertyOfExtendableClassCanBeConfigured(): void
     {
         $double = $this->createTestDouble(ExtendableClassWithPropertyWithGetHook::class);
@@ -311,6 +310,38 @@ abstract class TestDoubleTestCase extends TestCase
         $double->method(PropertyHook::get('property'))->willReturn('value');
 
         $this->assertSame('value', $double->property);
+    }
+
+    #[TestDox('Sealed stub throws exception when method() is called')]
+    public function testSealedStubThrowsExceptionWhenMethodIsCalled(): void
+    {
+        $stub = $this->createStub(InterfaceWithReturnTypeDeclaration::class);
+
+        $stub
+            ->method('doSomething')
+            ->willReturn(true)
+            ->seal();
+
+        $this->expectException(TestDoubleSealedException::class);
+
+        $stub->method('doSomethingElse');
+    }
+
+    #[TestDox('Cloned sealed stub remains sealed')]
+    public function testClonedSealedStubRemainsSealed(): void
+    {
+        $stub = $this->createStub(InterfaceWithReturnTypeDeclaration::class);
+
+        $stub
+            ->method('doSomething')
+            ->willReturn(true)
+            ->seal();
+
+        $clone = clone $stub;
+
+        $this->expectException(TestDoubleSealedException::class);
+
+        $clone->method('doSomethingElse');
     }
 
     /**

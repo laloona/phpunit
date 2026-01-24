@@ -12,12 +12,15 @@ namespace PHPUnit\Framework;
 use PHPUnit\Framework\Assert\CardinalityAsserts;
 use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 
 #[CoversTrait(CardinalityAsserts::class)]
 #[TestDox('assertLessThan()')]
 #[Small]
+#[Group('framework')]
+#[Group('framework/assertions')]
 final class assertLessThanTest extends TestCase
 {
     /**

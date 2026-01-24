@@ -14,6 +14,7 @@ use PHPUnit\Framework\Assert\CardinalityAsserts;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\DataProviderExternal;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 
@@ -21,6 +22,8 @@ use PHPUnit\Framework\Attributes\TestDox;
 #[CoversClass(GeneratorNotSupportedException::class)]
 #[TestDox('assertNotSameSize()')]
 #[Small]
+#[Group('framework')]
+#[Group('framework/assertions')]
 final class assertNotSameSizeTest extends TestCase
 {
     #[DataProviderExternal(assertSameSizeTest::class, 'failureProvider')]

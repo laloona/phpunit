@@ -12,6 +12,7 @@ namespace PHPUnit\Framework;
 use PHPUnit\Framework\Assert\ObjectAsserts;
 use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\TestFixture\ObjectEquals\ValueObject;
@@ -19,6 +20,8 @@ use PHPUnit\TestFixture\ObjectEquals\ValueObject;
 #[CoversTrait(ObjectAsserts::class)]
 #[TestDox('assertObjectEquals()')]
 #[Small]
+#[Group('framework')]
+#[Group('framework/assertions')]
 final class assertObjectEqualsTest extends TestCase
 {
     /**

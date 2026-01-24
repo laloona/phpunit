@@ -18,6 +18,7 @@ use DateTimeZone;
 use PHPUnit\Framework\Assert\EqualityAsserts;
 use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\TestFixture\Author;
@@ -32,6 +33,8 @@ use stdClass;
 #[CoversTrait(EqualityAsserts::class)]
 #[TestDox('assertEquals()')]
 #[Small]
+#[Group('framework')]
+#[Group('framework/assertions')]
 final class assertEqualsTest extends TestCase
 {
     /**

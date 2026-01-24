@@ -9,15 +9,18 @@
  */
 namespace PHPUnit\Framework;
 
+use const NAN;
 use PHPUnit\Framework\Assert\MathAsserts;
 use PHPUnit\Framework\Attributes\CoversTrait;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
-use const NAN;
 
 #[CoversTrait(MathAsserts::class)]
 #[TestDox('assertNan()')]
 #[Small]
+#[Group('framework')]
+#[Group('framework/assertions')]
 final class assertNanTest extends TestCase
 {
     public function testSucceedsWhenConstraintEvaluatesToTrue(): void

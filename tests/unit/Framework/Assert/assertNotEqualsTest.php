@@ -12,12 +12,15 @@ namespace PHPUnit\Framework;
 use PHPUnit\Framework\Assert\EqualityAsserts;
 use PHPUnit\Framework\Attributes\CoversTrait;
 use PHPUnit\Framework\Attributes\DataProviderExternal;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 
 #[CoversTrait(EqualityAsserts::class)]
 #[TestDox('assertNotEquals()')]
 #[Small]
+#[Group('framework')]
+#[Group('framework/assertions')]
 final class assertNotEqualsTest extends TestCase
 {
     #[DataProviderExternal(assertEqualsTest::class, 'failureProvider')]

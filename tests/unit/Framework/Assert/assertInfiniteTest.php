@@ -9,15 +9,18 @@
  */
 namespace PHPUnit\Framework;
 
+use const INF;
 use PHPUnit\Framework\Assert\MathAsserts;
 use PHPUnit\Framework\Attributes\CoversTrait;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
-use const INF;
 
 #[CoversTrait(MathAsserts::class)]
 #[TestDox('assertInfinite()')]
 #[Small]
+#[Group('framework')]
+#[Group('framework/assertions')]
 final class assertInfiniteTest extends TestCase
 {
     public function testSucceedsWhenConstraintEvaluatesToTrue(): void

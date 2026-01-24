@@ -7,6 +7,14 @@ All notable changes of the PHPUnit 13.0 release series are documented in this fi
 ### Added
 
 * [#6450](https://github.com/sebastianbergmann/phpunit/issues/6450): `TestCase::invokeTestMethod()` method for customizing test method invocation
+* [#6455](https://github.com/sebastianbergmann/phpunit/issues/6455): `withParameterSetsInOrder()` and `withParameterSetsInAnyOrder()` for expecting calls to the same method of a mock object but with different arguments
+* [#6466](https://github.com/sebastianbergmann/phpunit/issues/6466): Sealed test doubles
+* [#6468](https://github.com/sebastianbergmann/phpunit/issues/6468): Configuration option to require sealed mock objects
+* `--test-files-file <file>` CLI option to configure a file that contains the paths to the test files to be loaded (one file per line); use this when using CLI arguments is not an option due to argument length limitations
+
+### Deprecated
+
+* [#6461](https://github.com/sebastianbergmann/phpunit/issues/6461): `any()` matcher (hard deprecation)
 
 ### Removed
 

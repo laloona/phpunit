@@ -11,6 +11,7 @@ namespace PHPUnit\Framework;
 
 use PHPUnit\Framework\Assert\ObjectAsserts;
 use PHPUnit\Framework\Attributes\CoversTrait;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 use stdClass;
@@ -18,6 +19,8 @@ use stdClass;
 #[CoversTrait(ObjectAsserts::class)]
 #[TestDox('assertObjectNotHasProperty()')]
 #[Small]
+#[Group('framework')]
+#[Group('framework/assertions')]
 final class assertObjectNotHasPropertyTest extends TestCase
 {
     public function testSucceedsWhenConstraintEvaluatesToTrue(): void

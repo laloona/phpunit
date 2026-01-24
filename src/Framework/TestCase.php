@@ -188,7 +188,7 @@ abstract class TestCase extends Assert implements Reorderable, SelfDescribing, T
     private TestStatus $status;
 
     /**
-     * @var 0|positive-int
+     * @var non-negative-int
      */
     private int $numberOfAssertionsPerformed = 0;
     private mixed $testResult                = null;
@@ -821,17 +821,21 @@ abstract class TestCase extends Assert implements Reorderable, SelfDescribing, T
     }
 
     /**
+     * @param non-negative-int $count
+     *
      * @internal This method is not covered by the backward compatibility promise for PHPUnit
      */
     final public function addToAssertionCount(int $count): void
     {
+        assert($count >= 0);
+
         $this->numberOfAssertionsPerformed += $count;
     }
 
     /**
-     * @internal This method is not covered by the backward compatibility promise for PHPUnit
+     * @return non-negative-int
      *
-     * @return 0|positive-int
+     * @internal This method is not covered by the backward compatibility promise for PHPUnit
      */
     final public function numberOfAssertionsPerformed(): int
     {
@@ -970,9 +974,17 @@ abstract class TestCase extends Assert implements Reorderable, SelfDescribing, T
     /**
      * Returns a matcher that matches when the method is executed
      * zero or more times.
+     *
+     * @deprecated https://github.com/sebastianbergmann/phpunit/issues/6461
      */
     final protected function any(): AnyInvokedCountMatcher
     {
+        Event\Facade::emitter()->testTriggeredPhpunitDeprecation(
+            $this->testValueObjectForEvents,
+            'The any() invoked count expectation is deprecated and will be removed in PHPUnit 14. ' .
+            'Use a test stub instead or configure a real invocation count expectation.',
+        );
+
         return new AnyInvokedCountMatcher;
     }
 
@@ -1349,7 +1361,11 @@ abstract class TestCase extends Assert implements Reorderable, SelfDescribing, T
     private function stripDateFromErrorLog(string $log): string
     {
         // https://github.com/php/php-src/blob/c696087e323263e941774ebbf902ac249774ec9f/main/main.c#L905
-        return preg_replace('/\[\d+-\w+-\d+ \d+:\d+:\d+ [^\r\n[\]]+?\] /', '', $log);
+        $result = preg_replace('/\[\d+-\w+-\d+ \d+:\d+:\d+ [^\r\n[\]]+?\] /', '', $log);
+
+        assert($result !== null);
+
+        return $result;
     }
 
     /**
@@ -1396,9 +1412,24 @@ abstract class TestCase extends Assert implements Reorderable, SelfDescribing, T
     {
         $allowsMockObjectsWithoutExpectations = $this->allowsMockObjectsWithoutExpectations();
         $isPhpunitTestSuite                   = str_starts_with($this::class, 'PHPUnit\\');
+        $requireSealedMockObjects             = ConfigurationRegistry::get()->requireSealedMockObjects();
 
         foreach ($this->mockObjects as $mockObject) {
-            if (!$mockObject['mockObject']->__phpunit_hasMatchers()) {
+            $mockedType = $mockObject['type'];
+            $mockObject = $mockObject['mockObject'];
+
+            if ($requireSealedMockObjects &&
+                !$mockObject->__phpunit_getInvocationHandler()->isSealed()) {
+                Event\Facade::emitter()->testConsideredRisky(
+                    $this->valueObjectForEvents(),
+                    sprintf(
+                        'Mock object for %s has not been sealed',
+                        $mockedType,
+                    ),
+                );
+            }
+
+            if (!$mockObject->__phpunit_hasMatchers()) {
                 if (!$allowsMockObjectsWithoutExpectations && !$isPhpunitTestSuite) {
                     Event\Facade::emitter()->testTriggeredPhpunitNotice(
                         $this->testValueObjectForEvents,
@@ -1406,7 +1437,7 @@ abstract class TestCase extends Assert implements Reorderable, SelfDescribing, T
                             'No expectations were configured for the mock object for %s. ' .
                             'Consider refactoring your test code to use a test stub instead. ' .
                             'The #[AllowMockObjectsWithoutExpectations] attribute can be used to opt out of this check.',
-                            $mockObject['type'],
+                            $mockedType,
                         ),
                     );
                 }
@@ -1416,8 +1447,8 @@ abstract class TestCase extends Assert implements Reorderable, SelfDescribing, T
 
             $this->numberOfAssertionsPerformed++;
 
-            $mockObject['mockObject']->__phpunit_verify(
-                $this->shouldInvocationMockerBeReset($mockObject['mockObject']),
+            $mockObject->__phpunit_verify(
+                $this->shouldInvocationMockerBeReset($mockObject),
             );
         }
     }
