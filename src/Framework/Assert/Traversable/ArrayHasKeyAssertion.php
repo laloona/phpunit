@@ -10,11 +10,11 @@
 namespace PHPUnit\Framework\Assert\Traversable;
 
 use function array_shift;
-use PHPUnit\Framework\Assert\UrnaryAssertion;
+use PHPUnit\Framework\Assert\UnaryAssertion;
 use PHPUnit\Framework\Constraint\ArrayHasKey;
 use PHPUnit\Framework\Constraint\Constraint;
 
-final class ArrayHasKeyAssertion extends UrnaryAssertion
+final class ArrayHasKeyAssertion extends UnaryAssertion
 {
     protected function expectation(array &$values): Constraint
     {

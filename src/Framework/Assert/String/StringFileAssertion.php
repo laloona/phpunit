@@ -11,9 +11,9 @@ namespace PHPUnit\Framework\Assert\String;
 
 use function array_key_last;
 use PHPUnit\Framework\Assert\Contraints\Filesystem\FileExistsAssertion;
-use PHPUnit\Framework\Assert\UrnaryAssertion;
+use PHPUnit\Framework\Assert\UnaryAssertion;
 
-abstract class StringFileAssertion extends UrnaryAssertion
+abstract class StringFileAssertion extends UnaryAssertion
 {
     protected function actual(array &$values): mixed
     {

@@ -10,11 +10,11 @@
 namespace PHPUnit\Framework\Assert\Cardinality;
 
 use function array_shift;
-use PHPUnit\Framework\Assert\UrnaryAssertion;
+use PHPUnit\Framework\Assert\UnaryAssertion;
 use PHPUnit\Framework\Constraint\Constraint;
 use PHPUnit\Framework\Constraint\LessThan;
 
-final class LessThanAssertion extends UrnaryAssertion
+final class LessThanAssertion extends UnaryAssertion
 {
     protected function expectation(array &$values): Constraint
     {

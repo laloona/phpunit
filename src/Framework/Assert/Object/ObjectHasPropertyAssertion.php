@@ -10,11 +10,11 @@
 namespace PHPUnit\Framework\Assert\Object;
 
 use function array_shift;
-use PHPUnit\Framework\Assert\UrnaryAssertion;
+use PHPUnit\Framework\Assert\UnaryAssertion;
 use PHPUnit\Framework\Constraint\Constraint;
 use PHPUnit\Framework\Constraint\ObjectHasProperty;
 
-final class ObjectHasPropertyAssertion extends UrnaryAssertion
+final class ObjectHasPropertyAssertion extends UnaryAssertion
 {
     protected function expectation(array &$values): Constraint
     {

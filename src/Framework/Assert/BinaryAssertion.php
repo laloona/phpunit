@@ -14,7 +14,7 @@ abstract class BinaryAssertion extends Assertion
     /**
      * positive execution of the given assertion.
      */
-    final public function assert($message, mixed ...$values): void
+    final public function assert(string $message, mixed ...$values): void
     {
         $this->assertions($message, $values)->assert($message, ...$values);
     }
@@ -22,7 +22,7 @@ abstract class BinaryAssertion extends Assertion
     /**
      * negative execution of the given assertion.
      */
-    final public function assertNot($message, mixed ...$values): void
+    final public function assertNot(string $message, mixed ...$values): void
     {
         $this->assertions($message, $values)->assertNot($message, ...$values);
     }

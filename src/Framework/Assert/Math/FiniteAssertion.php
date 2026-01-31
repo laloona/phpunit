@@ -9,11 +9,11 @@
  */
 namespace PHPUnit\Framework\Assert\Math;
 
-use PHPUnit\Framework\Assert\UrnaryAssertion;
+use PHPUnit\Framework\Assert\UnaryAssertion;
 use PHPUnit\Framework\Constraint\Constraint;
 use PHPUnit\Framework\Constraint\IsFinite;
 
-final class FiniteAssertion extends UrnaryAssertion
+final class FiniteAssertion extends UnaryAssertion
 {
     protected function expectation(array &$values): Constraint
     {

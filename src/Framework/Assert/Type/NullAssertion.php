@@ -9,11 +9,11 @@
  */
 namespace PHPUnit\Framework\Assert\Type;
 
-use PHPUnit\Framework\Assert\UrnaryAssertion;
+use PHPUnit\Framework\Assert\UnaryAssertion;
 use PHPUnit\Framework\Constraint\Constraint;
 use PHPUnit\Framework\Constraint\IsNull;
 
-final class NullAssertion extends UrnaryAssertion
+final class NullAssertion extends UnaryAssertion
 {
     protected function expectation(array &$values): Constraint
     {

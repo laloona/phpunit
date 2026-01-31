@@ -12,7 +12,7 @@ namespace PHPUnit\Framework\Assert;
 use function array_shift;
 use PHPUnit\Framework\Constraint\Constraint;
 
-final class ThatAssertion extends UrnaryAssertion
+final class ThatAssertion extends UnaryAssertion
 {
     protected function expectation(array &$values): Constraint
     {

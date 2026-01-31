@@ -10,10 +10,10 @@
 namespace PHPUnit\Framework\Assert\Cardinality;
 
 use Generator;
-use PHPUnit\Framework\Assert\UrnaryAssertion;
+use PHPUnit\Framework\Assert\UnaryAssertion;
 use PHPUnit\Framework\GeneratorNotSupportedException;
 
-abstract class GeneratorCheckAssertion extends UrnaryAssertion
+abstract class GeneratorCheckAssertion extends UnaryAssertion
 {
     final protected function checkGenerator(string $name, mixed $value): void
     {

@@ -9,12 +9,12 @@
  */
 namespace PHPUnit\Framework\Assert\Type;
 
-use PHPUnit\Framework\Assert\UrnaryAssertion;
+use PHPUnit\Framework\Assert\UnaryAssertion;
 use PHPUnit\Framework\Constraint\Constraint;
 use PHPUnit\Framework\Constraint\IsType;
 use PHPUnit\Framework\NativeType;
 
-final class IsFloatAssertion extends UrnaryAssertion
+final class IsFloatAssertion extends UnaryAssertion
 {
     protected function expectation(array &$values): Constraint
     {

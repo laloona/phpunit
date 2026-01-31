@@ -10,11 +10,11 @@
 namespace PHPUnit\Framework\Assert\Equality;
 
 use function array_shift;
-use PHPUnit\Framework\Assert\UrnaryAssertion;
+use PHPUnit\Framework\Assert\UnaryAssertion;
 use PHPUnit\Framework\Constraint\Constraint;
 use PHPUnit\Framework\Constraint\IsEqualWithDelta;
 
-final class EqualsWithDeltaAssertion extends UrnaryAssertion
+final class EqualsWithDeltaAssertion extends UnaryAssertion
 {
     protected function expectation(array &$values): Constraint
     {

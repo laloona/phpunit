@@ -13,7 +13,7 @@ use function array_shift;
 use PHPUnit\Framework\Constraint\Constraint;
 use PHPUnit\Framework\Constraint\LogicalNot;
 
-abstract class UrnaryAssertion extends Assertion
+abstract class UnaryAssertion extends Assertion
 {
     protected string $message;
 

@@ -9,11 +9,11 @@
  */
 namespace PHPUnit\Framework\Assert\Math;
 
-use PHPUnit\Framework\Assert\UrnaryAssertion;
+use PHPUnit\Framework\Assert\UnaryAssertion;
 use PHPUnit\Framework\Constraint\Constraint;
 use PHPUnit\Framework\Constraint\IsNan;
 
-final class NanAssertion extends UrnaryAssertion
+final class NanAssertion extends UnaryAssertion
 {
     protected function expectation(array &$values): Constraint
     {

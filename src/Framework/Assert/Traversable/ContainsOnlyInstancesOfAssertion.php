@@ -10,11 +10,11 @@
 namespace PHPUnit\Framework\Assert\Traversable;
 
 use function array_shift;
-use PHPUnit\Framework\Assert\UrnaryAssertion;
+use PHPUnit\Framework\Assert\UnaryAssertion;
 use PHPUnit\Framework\Constraint\Constraint;
 use PHPUnit\Framework\Constraint\TraversableContainsOnly;
 
-final class ContainsOnlyInstancesOfAssertion extends UrnaryAssertion
+final class ContainsOnlyInstancesOfAssertion extends UnaryAssertion
 {
     protected function expectation(array &$values): Constraint
     {

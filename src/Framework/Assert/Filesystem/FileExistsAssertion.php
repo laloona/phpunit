@@ -9,11 +9,11 @@
  */
 namespace PHPUnit\Framework\Assert\Contraints\Filesystem;
 
-use PHPUnit\Framework\Assert\UrnaryAssertion;
+use PHPUnit\Framework\Assert\UnaryAssertion;
 use PHPUnit\Framework\Constraint\Constraint;
 use PHPUnit\Framework\Constraint\FileExists;
 
-final class FileExistsAssertion extends UrnaryAssertion
+final class FileExistsAssertion extends UnaryAssertion
 {
     protected function expectation(array &$values): Constraint
     {

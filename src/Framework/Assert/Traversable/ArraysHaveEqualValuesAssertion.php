@@ -9,11 +9,11 @@
  */
 namespace PHPUnit\Framework\Assert\Traversable;
 
-use PHPUnit\Framework\Assert\UrnaryAssertion;
+use PHPUnit\Framework\Assert\UnaryAssertion;
 use PHPUnit\Framework\Constraint\ArraysAreEqual;
 use PHPUnit\Framework\Constraint\Constraint;
 
-final class ArraysHaveEqualValuesAssertion extends UrnaryAssertion
+final class ArraysHaveEqualValuesAssertion extends UnaryAssertion
 {
     protected function expectation(array &$values): Constraint
     {

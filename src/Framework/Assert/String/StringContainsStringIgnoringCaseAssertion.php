@@ -10,11 +10,11 @@
 namespace PHPUnit\Framework\Assert\String;
 
 use function array_shift;
-use PHPUnit\Framework\Assert\UrnaryAssertion;
+use PHPUnit\Framework\Assert\UnaryAssertion;
 use PHPUnit\Framework\Constraint\Constraint;
 use PHPUnit\Framework\Constraint\StringContains;
 
-final class StringContainsStringIgnoringCaseAssertion extends UrnaryAssertion
+final class StringContainsStringIgnoringCaseAssertion extends UnaryAssertion
 {
     protected function expectation(array &$values): Constraint
     {

@@ -9,12 +9,12 @@
  */
 namespace PHPUnit\Framework\Assert\Traversable;
 
-use PHPUnit\Framework\Assert\UrnaryAssertion;
+use PHPUnit\Framework\Assert\UnaryAssertion;
 use PHPUnit\Framework\Constraint\Constraint;
 use PHPUnit\Framework\Constraint\TraversableContainsOnly;
 use PHPUnit\Framework\NativeType;
 
-final class ContainsOnlyNumericAssertion extends UrnaryAssertion
+final class ContainsOnlyNumericAssertion extends UnaryAssertion
 {
     protected function expectation(array &$values): Constraint
     {

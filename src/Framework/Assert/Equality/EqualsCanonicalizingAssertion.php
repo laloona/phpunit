@@ -10,11 +10,11 @@
 namespace PHPUnit\Framework\Assert\Equality;
 
 use function array_shift;
-use PHPUnit\Framework\Assert\UrnaryAssertion;
+use PHPUnit\Framework\Assert\UnaryAssertion;
 use PHPUnit\Framework\Constraint\Constraint;
 use PHPUnit\Framework\Constraint\IsEqualCanonicalizing;
 
-final class EqualsCanonicalizingAssertion extends UrnaryAssertion
+final class EqualsCanonicalizingAssertion extends UnaryAssertion
 {
     protected function expectation(array &$values): Constraint
     {

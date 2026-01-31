@@ -10,11 +10,11 @@
 namespace PHPUnit\Framework\Assert\Identity;
 
 use function array_shift;
-use PHPUnit\Framework\Assert\UrnaryAssertion;
+use PHPUnit\Framework\Assert\UnaryAssertion;
 use PHPUnit\Framework\Constraint\Constraint;
 use PHPUnit\Framework\Constraint\IsIdentical;
 
-final class SameAssertion extends UrnaryAssertion
+final class SameAssertion extends UnaryAssertion
 {
     protected function expectation(array &$values): Constraint
     {
