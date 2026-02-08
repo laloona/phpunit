@@ -13,6 +13,7 @@ use PHPUnit\Framework\Assert\Assertable;
 use PHPUnit\Framework\assertEqualsCanonicalizingTest;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProviderExternal;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Constraint\IsEqualCanonicalizing;
 use PHPUnit\Framework\Constraint\LogicalNot;
@@ -21,6 +22,8 @@ use function method_exists;
 
 #[CoversClass(EqualsCanonicalizingAssertion::class)]
 #[Small]
+#[Group('framework')]
+#[Group('framework/assertions')]
 final class EqualsCanonicalizingAssertionTest extends TestCase
 {
     public function testAssertAndNotAssertAreAvailableInTestClass(): void

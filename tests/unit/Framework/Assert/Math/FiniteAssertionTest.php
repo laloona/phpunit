@@ -12,6 +12,7 @@ namespace PHPUnit\Framework\Assert\Math;
 use PHPUnit\Framework\Assert\Assertable;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Constraint\IsFinite;
 use PHPUnit\Framework\Constraint\LogicalNot;
@@ -19,6 +20,8 @@ use PHPUnit\Framework\TestCase;
 
 #[CoversClass(FiniteAssertion::class)]
 #[Small]
+#[Group('framework')]
+#[Group('framework/assertions')]
 final class FiniteAssertionTest extends TestCase
 {
     /**

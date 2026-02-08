@@ -9,6 +9,7 @@
  */
 namespace PHPUnit\Framework\Traversable;
 
+use PHPUnit\Framework\Attributes\Group;
 use function method_exists;
 use stdClass;
 use PHPUnit\Framework\Assert\Assertable;
@@ -22,6 +23,8 @@ use PHPUnit\Framework\TestCase;
 
 #[CoversClass(ContainsAssertion::class)]
 #[Small]
+#[Group('framework')]
+#[Group('framework/assertions')]
 final class ContainsAssertionTest extends TestCase
 {
     /**

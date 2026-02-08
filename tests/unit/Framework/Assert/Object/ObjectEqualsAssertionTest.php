@@ -13,6 +13,7 @@ use PHPUnit\Framework\Assert\Assertable;
 use PHPUnit\Framework\assertObjectEqualsTest;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProviderExternal;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Constraint\LogicalNot;
 use PHPUnit\Framework\Constraint\ObjectEquals;
@@ -20,6 +21,8 @@ use PHPUnit\Framework\TestCase;
 
 #[CoversClass(ObjectEqualsAssertion::class)]
 #[Small]
+#[Group('framework')]
+#[Group('framework/assertions')]
 final class ObjectEqualsAssertionTest extends TestCase
 {
     public function testAssertAndNotAssertAreAvailableInTestClass(): void

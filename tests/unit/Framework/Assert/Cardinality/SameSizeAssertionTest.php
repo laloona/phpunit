@@ -14,6 +14,7 @@ use PHPUnit\Framework\assertSameSizeTest;
 use PHPUnit\Framework\Assert\Assertable;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProviderExternal;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Constraint\LogicalNot;
 use PHPUnit\Framework\Constraint\SameSize;
@@ -23,6 +24,8 @@ use function method_exists;
 
 #[CoversClass(SameSizeAssertion::class)]
 #[Small]
+#[Group('framework')]
+#[Group('framework/assertions')]
 final class SameSizeAssertionTest extends TestCase
 {
     public function testAssertAndNotAssertAreAvailableInTestClass(): void

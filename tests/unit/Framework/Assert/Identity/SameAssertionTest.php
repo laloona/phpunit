@@ -13,6 +13,7 @@ use PHPUnit\Framework\Assert\Assertable;
 use PHPUnit\Framework\assertSameTest;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProviderExternal;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Constraint\IsIdentical;
 use PHPUnit\Framework\Constraint\LogicalNot;
@@ -20,6 +21,8 @@ use PHPUnit\Framework\TestCase;
 
 #[CoversClass(SameAssertion::class)]
 #[Small]
+#[Group('framework')]
+#[Group('framework/assertions')]
 final class SameAssertionTest extends TestCase
 {
     public function testAssertAndNotAssertAreAvailableInTestClass(): void

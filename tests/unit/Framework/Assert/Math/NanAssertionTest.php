@@ -12,6 +12,7 @@ namespace PHPUnit\Framework\Assert\Math;
 use PHPUnit\Framework\Assert\Assertable;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Constraint\IsNan;
 use PHPUnit\Framework\Constraint\LogicalNot;
@@ -20,6 +21,8 @@ use const NAN;
 
 #[CoversClass(NanAssertion::class)]
 #[Small]
+#[Group('framework')]
+#[Group('framework/assertions')]
 final class NanAssertionTest extends TestCase
 {
     public function testAssertIsAvailableInTestClass(): void

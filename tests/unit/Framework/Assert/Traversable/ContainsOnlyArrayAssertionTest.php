@@ -9,6 +9,7 @@
  */
 namespace PHPUnit\Framework\Traversable;
 
+use PHPUnit\Framework\Attributes\Group;
 use function method_exists;
 use PHPUnit\Framework\Assert\Assertable;
 use PHPUnit\Framework\Assert\Traversable\ContainsOnlyArrayAssertion;
@@ -21,6 +22,8 @@ use PHPUnit\Framework\TestCase;
 
 #[CoversClass(ContainsOnlyArrayAssertion::class)]
 #[Small]
+#[Group('framework')]
+#[Group('framework/assertions')]
 final class ContainsOnlyArrayAssertionTest extends TestCase
 {
     /**

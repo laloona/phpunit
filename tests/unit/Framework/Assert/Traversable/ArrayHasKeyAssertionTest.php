@@ -9,6 +9,7 @@
  */
 namespace PHPUnit\Framework\Traversable;
 
+use PHPUnit\Framework\Attributes\Group;
 use function method_exists;
 use ArrayAccess;
 use ArrayObject;
@@ -24,6 +25,8 @@ use PHPUnit\TestFixture\SampleArrayAccess;
 
 #[CoversClass(ArrayHasKeyAssertion::class)]
 #[Small]
+#[Group('framework')]
+#[Group('framework/assertions')]
 final class ArrayHasKeyAssertionTest extends TestCase
 {
     /**

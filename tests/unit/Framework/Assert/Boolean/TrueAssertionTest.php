@@ -11,6 +11,7 @@ namespace PHPUnit\Framework\Assert\Boolean;
 
 use PHPUnit\Framework\Assert\Assertable;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Constraint\IsTrue;
 use PHPUnit\Framework\Constraint\LogicalNot;
@@ -19,6 +20,8 @@ use function method_exists;
 
 #[CoversClass(TrueAssertion::class)]
 #[Small]
+#[Group('framework')]
+#[Group('framework/assertions')]
 final class TrueAssertionTest extends TestCase
 {
     public function testAssertAndNotAssertAreAvailableInTestClass(): void

@@ -92,6 +92,7 @@
             "tests/unit/Framework/Assert/assertContainsOnlyClosedResourceTest.php",
             "tests/unit/Framework/Assert/assertContainsOnlyScalarTest.php",
             "tests/unit/Framework/Assert/assertContainsOnlyStringTest.php",
+            "tests/unit/Framework/Assert/assertCountTest.php",
             "tests/unit/Framework/Assert/assertDirectoryExistsTest.php",
             "tests/unit/Framework/Assert/assertEmptyTest.php",
             "tests/unit/Framework/Assert/assertEqualsTest.php",
