@@ -12,12 +12,14 @@ namespace PHPUnit\Framework\MockObject;
 use Exception;
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\TestDox;
+use PHPUnit\Framework\MockObject\Generator\MethodNamedMethodException;
 use PHPUnit\Framework\MockObject\Runtime\PropertyHook;
 use PHPUnit\Framework\TestCase;
 use PHPUnit\TestFixture\MockObject\ExtendableClassCallingMethodInDestructor;
 use PHPUnit\TestFixture\MockObject\ExtendableClassWithCloneMethod;
 use PHPUnit\TestFixture\MockObject\ExtendableClassWithPropertyWithGetHook;
 use PHPUnit\TestFixture\MockObject\ExtendableReadonlyClassWithCloneMethod;
+use PHPUnit\TestFixture\MockObject\InterfaceWithMethodNamedMethod;
 use PHPUnit\TestFixture\MockObject\InterfaceWithMethodThatHasDefaultParameterValues;
 use PHPUnit\TestFixture\MockObject\InterfaceWithNeverReturningMethod;
 use PHPUnit\TestFixture\MockObject\InterfaceWithPropertyWithGetHook;
@@ -312,10 +314,10 @@ abstract class TestDoubleTestCase extends TestCase
         $this->assertSame('value', $double->property);
     }
 
-    #[TestDox('Sealed stub throws exception when method() is called')]
-    public function testSealedStubThrowsExceptionWhenMethodIsCalled(): void
+    #[TestDox('Sealed test double throws exception when method() is called')]
+    public function testSealedTestDoubleThrowsExceptionWhenMethodIsCalled(): void
     {
-        $stub = $this->createStub(InterfaceWithReturnTypeDeclaration::class);
+        $stub = $this->createTestDouble(InterfaceWithReturnTypeDeclaration::class);
 
         $stub
             ->method('doSomething')
@@ -327,10 +329,10 @@ abstract class TestDoubleTestCase extends TestCase
         $stub->method('doSomethingElse');
     }
 
-    #[TestDox('Cloned sealed stub remains sealed')]
-    public function testClonedSealedStubRemainsSealed(): void
+    #[TestDox('Cloned sealed test double remains sealed')]
+    public function testClonedSealedTestDoubleRemainsSealed(): void
     {
-        $stub = $this->createStub(InterfaceWithReturnTypeDeclaration::class);
+        $stub = $this->createTestDouble(InterfaceWithReturnTypeDeclaration::class);
 
         $stub
             ->method('doSomething')
@@ -342,6 +344,15 @@ abstract class TestDoubleTestCase extends TestCase
         $this->expectException(TestDoubleSealedException::class);
 
         $clone->method('doSomethingElse');
+    }
+
+    #[TestDox('Cannot create test double for an interface that has a method named "method"')]
+    public function testCannotCreateTestDoubleForInterfaceWithMethodNamedMethod(): void
+    {
+        $this->expectException(MethodNamedMethodException::class);
+        $this->expectExceptionMessage('Doubling interfaces (or classes) that have a method named "method" is not supported.');
+
+        $this->createTestDouble(InterfaceWithMethodNamedMethod::class);
     }
 
     /**
